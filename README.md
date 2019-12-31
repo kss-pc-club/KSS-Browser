@@ -4,7 +4,8 @@
 
 ## What's this?
 
-A Browser using Electron for KSS School Festival 2020.
+A Browser using Electron for KSS School Festival 2020.<br>
+For Windows only.
 
 ## How to Compile & Use
 
