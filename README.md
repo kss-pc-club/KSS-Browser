@@ -4,7 +4,19 @@
 
 ## What's this?
 
-A Browser using Electron
+A Browser using Electron for KSS School Festival 2020.
+
+## How to Compile & Use
+
+1. Clone this repo<br>
+  `git clone https://github.com/a01sa01to/ElectronBrowser.git`
+2. Install dependencies<br>
+  `npm i`
+3. Compile: `npm run build` or `npm run testBuild`<br>
+
+  A difference is whether the installer exists.<br>
+  `build` to create installer at `dist/electron-browser Setup ${version}`.<br>
+  No matter which you choose, `src/` will be compiled to `dist/win-unpacked/electron-browser.exe`
 
 ## Release
 
