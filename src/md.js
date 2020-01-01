@@ -1,10 +1,12 @@
 const fs = require('fs');
 const hljs = require("highlight.js");
 const marked = require('marked')
-const readFile = (file) => {
-	fs.readFile(file, (err, d) => {
+const readFile = (file, wind) => {
+	fs.readFile(file, (err, d, w=wind) => {
 		const data = marked(d.toString());
 		console.log(data)
+        w.document.write(data)
+
 		// Array.from(document.querySelectorAll('pre code')).forEach(block => hljs.highlightBlock(block))
 		// Array.from(document.querySelectorAll('.md a')).forEach((link, index) => {
 		//   // console.log(document.querySelectorAll('.md a').item(index))
