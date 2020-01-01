@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css?family=Kosugi+Maru|M+PLUS+Rounded+1c|Noto+Sans+JP|Poppins|Sawarabi+Mincho&display=swap");
+
+* {
+	box-sizing: border-box;
+	font-family: "Poppins", 'Kosugi Maru', 'M PLUS Rounded 1c', "Noto Sans Japanese", sans-serif;
+}
+
+body{
+	padding: 16px;
+}
