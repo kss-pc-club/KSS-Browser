@@ -14,3 +14,16 @@
 		}
 	}
 }
+
+footer{
+	p{
+		a{
+			display: inline-block;
+			padding: 2px 8px;
+			border-left: 1px #ccc solid;
+			&.last{
+				border-right: 1px #ccc solid;
+			}
+		}
+	}
+}
