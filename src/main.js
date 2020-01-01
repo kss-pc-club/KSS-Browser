@@ -25,7 +25,8 @@ function createWindow() {
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
             // preload: path.join(__dirname, 'src/preload.js'),
-			nodeIntegration: true
+            nodeIntegration: true,
+            nativeWindowOpen: true
         }
     })
 
@@ -71,8 +72,6 @@ app.on('activate', function() {
 // このファイルには残りのメインプロセスのコード書けるで。あと分割してrequireしてもokよ。
 
 const {menuTemplate} = require("./menu");
-const {readFile} = require("./md");
 
 Menu.setApplicationMenu(menuTemplate)
-readFile(path.join(__dirname, 'ex.md'))
-// readFile(path.join(__dirname, 'src/ex.md'))
+
