@@ -1,14 +1,7 @@
 // Modules to control application life and create native browser window
 // アプリコントロールとウィンドウ生成のモジュール
-console.log(require.resolve('electron'))
-const el = require("electron");
-const app = require("electron").app || el.remote.app;
-const BrowserWindow = require("electron").BrowserWindow || el.remote.BrowserWindow;
-console.log(el);
-
-// const {app, BrowserWindow} = require("electron");
+const {app, BrowserWindow, Menu} = require("electron") || require("electron").remote;
 const path = require('path');
-const fs = require('fs');
 
 
 // Keep a global reference of the window object, if you don't, the window will be closed automatically when the JavaScript object is garbage collected.
@@ -27,14 +20,16 @@ function createWindow() {
 	// Create the browser window.
 	// ブラウザウィンドウ生成
     mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 700,
+        height: 720,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
             // preload: path.join(__dirname, 'src/preload.js'),
 			nodeIntegration: true
         }
     })
+
+    // Menu.setApplicationMenu(null);
 
     // and load the index.html of the app.
 	// アプリのindex.htmlを読み込み
@@ -43,7 +38,7 @@ function createWindow() {
 
     // Open the DevTools.
 	// DevTools開く
-    // mainWindow.webContents.openDevTools()
+    mainWindow.webContents.openDevTools()
 
     // Emitted when the window is closed.
 	// windowが閉じられた時に発火
@@ -75,45 +70,9 @@ app.on('activate', function() {
 // In this file you can include the rest of your app's specific main process code. You can also put them in separate files and require them here.
 // このファイルには残りのメインプロセスのコード書けるで。あと分割してrequireしてもokよ。
 
-const marked = require('marked')
-const readFile = (file) => {
-  fs.readFile(file, (err, data) => {
-    console.log(marked(data.toString()))
-    // Array.from(document.querySelectorAll('pre code')).forEach(block => hljs.highlightBlock(block))
-    // Array.from(document.querySelectorAll('.md a')).forEach((link, index) => {
-    //   // console.log(document.querySelectorAll('.md a').item(index))
-    //   document.querySelectorAll('.md a').item(index).addEventListener('click', (ev) => {
-    //     let url;
-    //     if (ev.target.localName === 'img' || ev.target.localName === 'span') {
-    //       url = ev.target.parentElement.href;
-    //     }
-    //     else {
-    //       url = ev.target.href;
-    //     }
-    //     shell.openExternal(url, {}, (err) => {
-    //       if (err) {
-    //         throw err;
-    //       }
-    //       shell.beep();
-    //       console.log("visit: ", url);
-    //     })
-    //     ev.preventDefault();
-    //     // return false;
-    //   });
-    //   /*
-    //   link.addEventListener('click', (ev) => {
-    //     ev.preventDefault();
-    //     shell.openExternal(ev.target.href, {}, (err) => {
-    //       if (err) {
-    //         throw err;
-    //       }
-    //       shell.beep();
-    //       console.log("visit: ", ev.target.href);
-    //     })
-    //   })
-    //   */
-    // })
-  })
-}
+const {menuTemplate} = require("./menu");
+const {readFile} = require("./md");
+
+Menu.setApplicationMenu(menuTemplate)
 readFile(path.join(__dirname, 'ex.md'))
 // readFile(path.join(__dirname, 'src/ex.md'))
