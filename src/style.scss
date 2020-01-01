@@ -1,0 +1,16 @@
+#dd{
+	background: #fff;
+	height: 300px;
+	width: 100%;
+	border-radius: 30px;
+	border: 3px #aaa solid;
+	display: grid;
+	grid-template-areas: "." "u" ".";
+	grid-template-rows: 1fr auto 1fr;
+	div{
+		grid-area: u;
+		p#uploadSelect{
+			cursor: pointer;
+		}
+	}
+}
