@@ -1,7 +1,7 @@
 {
-    "name": "electron-browser",
-    "version": "1.0.0",
-    "description": "A Browser using Electron",
+    "name": "kss-browser",
+    "version": "1.0.1",
+    "description": "A Browser for KSS School Festival 2020.",
     "dependencies": {
         "fs": "0.0.1-security",
         "marked": "^0.8.0",
@@ -20,7 +20,7 @@
         "js-yaml": "^3.13.1"
     },
     "build": {
-        "appId": "com.a01sa01to.electron.browser",
+        "appId": "com.a01sa01to.electron.kss-browser",
         "nsis": {
             "oneClick": false,
             "allowToChangeInstallationDirectory": true
