@@ -30,4 +30,8 @@ footer p a {
 footer p a.last {
   border-right: 1px #ccc solid;
 }
+
+a {
+  outline: none;
+}
 /*# sourceMappingURL=style.css.map */
