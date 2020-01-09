@@ -21,14 +21,17 @@ function createWindow() {
 	// ブラウザウィンドウ生成
     mainWindow = new BrowserWindow({
         width: 700,
-        height: 720,
+        height: 800,
         webPreferences: {
-            preload: path.join(__dirname, 'preload.js'),
+            preload: path.join(__dirname, 'js/preload.js'),
             // preload: path.join(__dirname, 'src/preload.js'),
             nodeIntegration: true,
             nativeWindowOpen: true
         }
     })
+
+    // 画面の中央に表示させる
+    mainWindow.center();
 
     // Menu.setApplicationMenu(null);
 
@@ -39,7 +42,7 @@ function createWindow() {
 
     // Open the DevTools.
 	// DevTools開く
-    mainWindow.webContents.openDevTools()
+    // mainWindow.webContents.openDevTools()
 
     // Emitted when the window is closed.
 	// windowが閉じられた時に発火
@@ -47,7 +50,8 @@ function createWindow() {
         // Dereference the window object, usually you would store windows in an array if your app supports multi windows, this is the time when you should delete the corresponding element.
 		// ウィンドウオブジェ逆参照。普通はアプリがマルチウィンドウをサポートしている場合、ウィンドウを配列に格納。これは、対応要素を削除する必要がある場合。
         mainWindow = null
-    })
+    });
+    require("./js/md").exportFile();
 }
 
 // This method will be called when Electron has finished initialization and is ready to create browser windows. Some APIs can only be used after this event occurs.
@@ -71,7 +75,6 @@ app.on('activate', function() {
 // In this file you can include the rest of your app's specific main process code. You can also put them in separate files and require them here.
 // このファイルには残りのメインプロセスのコード書けるで。あと分割してrequireしてもokよ。
 
-const {menuTemplate} = require("./menu");
+const {menuTemplate} = require("./js/menu");
 
 Menu.setApplicationMenu(menuTemplate)
-
