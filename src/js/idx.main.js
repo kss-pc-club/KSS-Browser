@@ -2,6 +2,7 @@
 const BrowserWindow = require("electron").BrowserWindow || require("electron").remote.BrowserWindow;
 const dialog = require("electron").dialog || require("electron").remote.dialog;
 const fs = require('fs-extra');
+const path = require('path');
 
 const $ = e => document.querySelector(e);
 const $$ = e => document.querySelectorAll(e);
@@ -25,7 +26,7 @@ window.addEventListener("DOMContentLoaded", ()=>{
 			properties: ['openDirectory']
 		});
 		console.log(dir || "user canceled")
-		if(dir){ dirSel(dir) }
+		if(dir){ dirSel(dir[0]) }
 	})
 
 	$("#openInst").addEventListener("click", ()=>{
@@ -59,5 +60,34 @@ const dirSel = dir=>{
 		alert("もしかして: 無拡張子ファイル")
 		return;
 	}
+	fs.ensureDirSync(dir+"/.kssbrowser");
+	if(fs.pathExistsSync(`${dir}\\README.md`)){
+		const marked = require('marked')
+		fs.readFile(file=`${dir}\\README.md`, (err, d) => {
+			const data = marked(d.toString());
+			// console.log(data)
+			const fn = `${dir}\\.kssbrowser\\README.md.html`;
+			let fileD = `<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<link rel="stylesheet" href="./markdown.min.css">
+	<title>README.md</title>
+</head>
+<body>
+`;
+fileD += data;
+fileD += `
+</body>
+</html>`;
+			fs.writeFile(fn, fileD, err=>{if(err)console.error(err)});
 
+			fs.copyFileSync(path.join(__dirname,"../resources/markdown.min.css"), `${dir}\\.kssbrowser\\markdown.min.css`)
+
+			window.open(dir+":readme", "proj");
+		})
+	}
+	else{
+		alert("README.mdファイルがまだ作成されていないようです。\n作成してみましょう！");
+		window.open(dir+":no-readme", "proj");
+	}
 }

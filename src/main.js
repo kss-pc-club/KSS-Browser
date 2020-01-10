@@ -1,8 +1,9 @@
 // Modules to control application life and create native browser window
 // アプリコントロールとウィンドウ生成のモジュール
-const {app, BrowserWindow, Menu} = require("electron") || require("electron").remote;
+const {app, BrowserWindow, Menu, globalShortcut} = require("electron") || require("electron").remote;
 const path = require('path');
 
+app.name = "KSS Browser";
 
 // Keep a global reference of the window object, if you don't, the window will be closed automatically when the JavaScript object is garbage collected.
 // ウィンドウオブジェのグローバル参照を保つ。さもないと、JSオブジェがメモリ自動開放したときに勝手にウィンドウが閉じる。
@@ -23,12 +24,12 @@ function createWindow() {
         width: 700,
         height: 800,
         webPreferences: {
-            preload: path.join(__dirname, 'js/preload.js'),
-            // preload: path.join(__dirname, 'src/preload.js'),
             nodeIntegration: true,
             nativeWindowOpen: true
         }
     })
+
+    mainWindow.setTitle("KSS Browser");
 
     // 画面の中央に表示させる
     mainWindow.center();
@@ -52,6 +53,55 @@ function createWindow() {
         mainWindow = null
     });
     require("./js/md").exportFile();
+    mainWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures) => {
+        if (frameName === 'proj') {
+            // open window as modal
+            event.preventDefault()
+            const exp = require("express");
+            const ls = exp();
+            const server = ls.listen(1331,(...arg)=>console.log("Hello",arg));
+
+            const existReadme = !url.includes(":no-readme");
+            url = url.replace(":no-readme","").replace(":readme","").replace("file:///","");
+
+            ls.use("/", exp.static(url));
+            ls.use((req, res) => { res.sendStatus(404); });
+
+            console.log(url, existReadme);
+
+            const wind = event.newGuest = new BrowserWindow({
+                modal: true,
+                parent: mainWindow,
+                width: 300,
+                height: 300,
+                titleBarStyle: "hiddenInset",
+                resizable: false,
+                alwaysOnTop: true,
+                closable: false,
+                fullscreen: true,
+                // movable: false,
+                skipTaskbar: true,
+                autoHideMenuBar: true
+            });
+            wind.loadURL((existReadme)?"http://localhost:1331/.kssbrowser/README.md.html":"http://localhost:1331/index.html");
+            wind.on("close",()=>{server.close()})
+            globalShortcut.register("Ctrl+Super+Alt+Shift+Delete+Insert", ()=>{
+                server.close();
+                app.quit();
+            });
+            globalShortcut.register("Ctrl+Super+Alt+F5", ()=>{
+                wind.webContents.toggleDevTools();
+            });
+            globalShortcut.registerAll(["Ctrl+Alt+Delete", "Ctrl+Shift+Esc"], ev=>{
+                ev.preventDefault();
+                return false;
+            });
+            globalShortcut.register("F5", ()=>{
+                wind.reload();
+            });
+            // Menu.setApplicationMenu(require("./js/menuProj").menuTemplate);
+        }
+    })
 }
 
 // This method will be called when Electron has finished initialization and is ready to create browser windows. Some APIs can only be used after this event occurs.

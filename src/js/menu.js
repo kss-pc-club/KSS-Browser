@@ -1,4 +1,4 @@
-const {Menu, shell, ipcMain, BrowserWindow} = require("electron") || require("electron").remote;
+const {Menu, shell} = require("electron") || require("electron").remote;
 
 const openLink = shell.openExternal;
 const template = [
