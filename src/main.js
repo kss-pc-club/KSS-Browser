@@ -91,7 +91,7 @@ function createWindow() {
                 server.close();
                 app.quit();
             });
-            globalShortcut.register("Ctrl+Super+Alt+F5", ()=>{
+            globalShortcut.register("Ctrl+Super+Alt+F12", ()=>{
                 wind.webContents.toggleDevTools();
             });
             globalShortcut.registerAll(["Ctrl+Alt+Delete", "Ctrl+Shift+Esc"], ev=>{
