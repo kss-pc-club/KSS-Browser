@@ -29,10 +29,6 @@ window.addEventListener("DOMContentLoaded", ()=>{
 		if(dir){ dirSel(dir[0]) }
 	})
 
-	$("#openInst").addEventListener("click", ()=>{
-		window.open("../resources/inst.html", "instructions");
-	})
-
 	$("div#dd").drop(e=>{
 		e.stopPropagation();
 		e.preventDefault();

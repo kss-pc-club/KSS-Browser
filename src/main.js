@@ -1,7 +1,6 @@
 // Modules to control application life and create native browser window
 // アプリコントロールとウィンドウ生成のモジュール
 const {app, BrowserWindow, Menu, globalShortcut} = require("electron") || require("electron").remote;
-const path = require('path');
 
 app.name = "KSS Browser";
 
@@ -38,8 +37,8 @@ function createWindow() {
 
     // and load the index.html of the app.
 	// アプリのindex.htmlを読み込み
-    mainWindow.loadFile('index.html')
-    // mainWindow.loadFile('src/index.html')
+    // mainWindow.loadFile('index.html')
+    mainWindow.loadFile('src/index.html')
 
     // Open the DevTools.
 	// DevTools開く
@@ -52,7 +51,7 @@ function createWindow() {
 		// ウィンドウオブジェ逆参照。普通はアプリがマルチウィンドウをサポートしている場合、ウィンドウを配列に格納。これは、対応要素を削除する必要がある場合。
         mainWindow = null
     });
-    require("./js/md").exportFile();
+
     mainWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures) => {
         if (frameName === 'proj') {
             // open window as modal
@@ -81,7 +80,8 @@ function createWindow() {
                 fullscreen: true,
                 // movable: false,
                 skipTaskbar: true,
-                autoHideMenuBar: true
+                autoHideMenuBar: true,
+                nodeIntegration: true
             });
             wind.loadURL((existReadme)?"http://localhost:1331/.kssbrowser/README.md.html":"http://localhost:1331/index.html");
             wind.on("close",()=>{server.close()})
@@ -99,7 +99,6 @@ function createWindow() {
             globalShortcut.register("F5", ()=>{
                 wind.reload();
             });
-            // Menu.setApplicationMenu(require("./js/menuProj").menuTemplate);
         }
     })
 }

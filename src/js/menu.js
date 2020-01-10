@@ -7,6 +7,7 @@ const template = [
 		label: 'Application',
 		submenu: [
 			{label: 'About KSS Browser', click: async ()=>{await openLink("https://github.com/a01sa01to/ElectronBrowser/blob/master/README.md")}},
+			{label: 'Source Code', click: async()=>await openLink('https://github.com/a01sa01to/ElectronBrowser')},
 			{label: 'License', click: async ()=>await openLink("https://github.com/a01sa01to/ElectronBrowser/blob/master/LICENSE"), sublabel: "MIT License"},
 			{role: 'quit'}
 		]
