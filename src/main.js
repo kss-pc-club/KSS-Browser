@@ -1,6 +1,7 @@
 // Modules to control application life and create native browser window
 // アプリコントロールとウィンドウ生成のモジュール
 const {app, BrowserWindow, Menu, globalShortcut} = require("electron") || require("electron").remote;
+const path = require("path");
 
 app.name = "KSS Browser";
 
@@ -25,7 +26,8 @@ function createWindow() {
         webPreferences: {
             nodeIntegration: true,
             nativeWindowOpen: true
-        }
+        },
+        icon: path.join(__dirname,"../resources/ico.ico")
     })
 
     mainWindow.setTitle("KSS Browser");

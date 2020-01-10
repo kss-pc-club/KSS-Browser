@@ -33,7 +33,8 @@
             "node_modules/**/*",
             "src/**/*",
             "resources/**/*"
-        ]
+        ],
+        "icon": "resources/icon256.png"
     },
     "electronWebpack": {
         "commonSourceDirectory": "dist",
