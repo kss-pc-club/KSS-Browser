@@ -3,7 +3,11 @@
     "version": "1.0.1",
     "description": "A Browser for KSS School Festival 2020.",
     "dependencies": {
+        "electron-webpack": "^2.7.4",
+        "express": "^4.17.1",
         "fs": "0.0.1-security",
+        "fs-extra": "^8.1.0",
+        "marked": "^0.8.0",
         "node-fetch": "^2.6.0",
         "source-map-support": "^0.5.16",
         "webpack": "^4.41.5"
@@ -14,12 +18,7 @@
         "electron-builder": "^21.2.0",
         "electron-log": "^4.0.2",
         "electron-packager": "^14.1.1",
-        "electron-webpack": "^2.7.4",
-        "express": "^4.17.1",
-        "fs-extra": "^8.1.0",
-        "highlight.js": "^9.17.1",
-        "js-yaml": "^3.13.1",
-        "marked": "^0.8.0"
+        "js-yaml": "^3.13.1"
     },
     "build": {
         "appId": "com.a01sa01to.electron.kss-browser",
@@ -30,8 +29,10 @@
         "files": [
             "dist/**/*",
             "package.json",
+            "package-lock.json",
             "node_modules/**/*",
-            "src/*"
+            "src/**/*",
+            "resources/**/*"
         ]
     },
     "electronWebpack": {
