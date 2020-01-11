@@ -36,3 +36,6 @@ For Windows only.
 
 This repo is under the MIT License.<br>
 See [LICENSE](https://github.com/a01sa01to/ElectronBrowser/blob/master/LICENSE) File.
+
+## Screenshot
+![Screenshot01](./screenshots/01.png)
