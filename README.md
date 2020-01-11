@@ -17,16 +17,16 @@ For Windows only.
   `npm run build` or `npm run testBuild`<br>
 
   A difference is whether the installer exists.<br>
-  `build` to create installer at `dist/electron-browser Setup ${version}.exe`.<br>
-  No matter which you choose, `src/` will be compiled to `dist/win-unpacked/electron-browser.exe`
+  `build` to create installer at `dist/kss-browser Setup ${version}.exe`.<br>
+  No matter which you choose, `src/` will be compiled to `dist/win-unpacked/kss-browser.exe`
 
 ## Release
 
 [![Release](https://img.shields.io/github/v/release/a01sa01to/ElectronBrowser?label=Latest%20release&maxAge=3600)](https://github.com/a01sa01to/ElectronBrowser/releases)<br>
 
-<!-- > Version 1.0 Released on 2019.12.29 -->
+> Version 1.0 Released on 2020.01.11
 
- ## Author
+## Author
 
 [![Follow @a01sa01to](https://img.shields.io/twitter/follow/a01sa01to?label=Follow&style=social&maxAge=3600, "Follow")](https://twitter.com/intent/follow?screen_name=a01sa01to)<br>
 [Asa (a.k.a Otsun)（@a01sa01to）](https://twitter.com/a01sa01to)<br>
