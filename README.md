@@ -24,7 +24,8 @@ For Windows only.
 
 [![Release](https://img.shields.io/github/v/release/a01sa01to/ElectronBrowser?label=Latest%20release&maxAge=3600)](https://github.com/a01sa01to/ElectronBrowser/releases)<br>
 
-> Version 1.0 Released on 2020.01.11
+> Version 1.0 & 1.1 Released on 2020.01.11<br>
+> Version 1.2 Released on 2020.01.22
 
 ## Author
 
@@ -38,4 +39,5 @@ This repo is under the MIT License.<br>
 See [LICENSE](https://github.com/a01sa01to/ElectronBrowser/blob/master/LICENSE) File.
 
 ## Screenshot
+
 ![Screenshot01](./screenshots/01.png)
