@@ -94,7 +94,7 @@ function createWindow() {
             globalShortcut.register("Ctrl+Super+Alt+F12", ()=>{
                 wind.webContents.toggleDevTools();
             });
-            globalShortcut.registerAll(["Ctrl+Alt+Delete", "Ctrl+Shift+Esc"], ev=>{
+            globalShortcut.registerAll(["Ctrl+Alt+Delete", "Ctrl+Shift+Esc", "F11", "F12"], ev=>{
                 ev.preventDefault();
                 return false;
             });

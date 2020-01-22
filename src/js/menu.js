@@ -16,9 +16,7 @@ const template = [
 	{
 		label: 'View',
 		submenu: [
-			{role: 'reload', accelerator: 'Ctrl+R'},
-			{role: 'togglefullscreen', accelerator: 'F11'},
-			{role: 'toggleDevTools', accelerator: 'F12'}
+			{role: 'reload', accelerator: 'Ctrl+R'}
 		]
 	}
 ]
