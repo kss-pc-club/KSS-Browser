@@ -16,7 +16,7 @@
         "asar": "^2.0.3",
         "electron": "^7.1.11",
         "electron-builder": "^21.2.0",
-        "electron-log": "^4.0.2",
+        "electron-log": "^4.0.5",
         "electron-packager": "^14.2.0",
         "js-yaml": "^3.13.1"
     },
