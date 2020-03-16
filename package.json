@@ -13,7 +13,7 @@
         "webpack": "^4.41.5"
     },
     "devDependencies": {
-        "asar": "^2.0.3",
+        "asar": "^3.0.1",
         "electron": "^7.1.11",
         "electron-builder": "^21.2.0",
         "electron-log": "^4.0.5",
