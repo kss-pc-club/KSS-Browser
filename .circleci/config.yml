@@ -23,5 +23,5 @@ jobs:
           paths:
             - ./node_modules
       - run:
-          name: Test
-          command: npm run test
+          name: Build
+          command: npm run testBuild
