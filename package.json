@@ -1,6 +1,6 @@
 {
     "name": "kss-browser",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "A Browser for KSS School Festival 2020.",
     "dependencies": {
         "electron-webpack": "^2.7.4",
