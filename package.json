@@ -3,7 +3,7 @@
     "version": "1.2.1",
     "description": "A Browser for KSS School Festival 2020.",
     "dependencies": {
-        "electron-webpack": "^2.7.4",
+        "electron-webpack": "^2.8.2",
         "express": "^4.17.1",
         "fs": "0.0.1-security",
         "fs-extra": "^9.0.0",
