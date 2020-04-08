@@ -41,8 +41,3 @@ See [LICENSE](https://github.com/a01sa01to/ElectronBrowser/blob/master/LICENSE) 
 ## Screenshot
 
 ![Screenshot01](./screenshots/01.png)
-
-## Support on Beerpay
-Hey dude! Help me out for a couple of :beers:!
-
-[![Beerpay](https://beerpay.io/a01sa01to/KSS-Browser/badge.svg?style=beer-square)](https://beerpay.io/a01sa01to/KSS-Browser)  [![Beerpay](https://beerpay.io/a01sa01to/KSS-Browser/make-wish.svg?style=flat-square)](https://beerpay.io/a01sa01to/KSS-Browser?focus=wish)
