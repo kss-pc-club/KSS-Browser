@@ -9,7 +9,7 @@
         "fs-extra": "^9.0.0",
         "marked": "^1.0.0",
         "node-fetch": "^2.6.0",
-        "source-map-support": "^0.5.17",
+        "source-map-support": "^0.5.18",
         "webpack": "^4.43.0"
     },
     "devDependencies": {
